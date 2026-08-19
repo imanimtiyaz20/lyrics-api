@@ -3,22 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      target: api
     container_name: lyrics-api
     restart: unless-stopped
     ports:
       - "8888:8888"
-
-  frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: frontend
-    container_name: lyrics-frontend
-    restart: unless-stopped
-    ports:
       - "3000:3000"
-    environment:
-      - API_URL=http://api:8888
-    depends_on:
-      - api
