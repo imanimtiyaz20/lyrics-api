@@ -38,18 +38,17 @@ RUN apt-get update \
         -o /tmp/node.tar.xz \
     && tar -xJf /tmp/node.tar.xz -C /usr/local --strip-components=1 \
     && rm -f /tmp/node.tar.xz \
-    && rm -rf /var/lib/apt/lists/* \
-    && node --version \
-    && npm --version
+    && rm -rf /var/lib/apt/lists/*
 
 COPY --from=api-build /app/target/*.jar ./app.jar
 
-COPY --from=frontend-build /app/.next/standalone ./.next/standalone
+COPY --from=frontend-build /app/.next/standalone ./
 COPY --from=frontend-build /app/.next/static ./.next/static
 COPY --from=frontend-build /app/public ./public
 
 ENV NODE_ENV=production
 ENV HOSTNAME=0.0.0.0
+ENV PORT=3000
 
 EXPOSE 8888
 EXPOSE 3000
@@ -62,7 +61,7 @@ set -e
 java -jar /app/app.jar &
 API_PID=$!
 
-PORT=3000 node /app/.next/standalone/server.js &
+PORT=3000 node /app/server.js &
 FRONTEND_PID=$!
 
 cleanup() {
