@@ -10,6 +10,7 @@ try {
 } catch (e) { }
 
 const nextConfig: NextConfig = {
+  output: "standalone",
   cacheComponents: false,
   experimental: {
     serverActions: {
