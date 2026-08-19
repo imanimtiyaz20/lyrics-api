@@ -16,6 +16,7 @@ RUN apk add --no-cache git
 COPY public/package.json public/package-lock.json ./
 RUN npm ci
 COPY public/ .
+COPY .git/ .git/
 RUN npm run build
 
 FROM node:20-alpine AS frontend
