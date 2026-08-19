@@ -1,7 +1,7 @@
 .PHONY: build up down logs
 
 build:
-	docker compose build
+	docker compose build --no-cache
 
 up:
 	docker image prune -f
