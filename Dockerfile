@@ -13,7 +13,7 @@ COPY public/ .
 COPY .git/ .git/
 RUN npm run build
 
-FROM eclipse-temurin:17-jre
+FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 
 RUN apk add --no-cache nodejs npm
