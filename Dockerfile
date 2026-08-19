@@ -1,7 +1,8 @@
 FROM eclipse-temurin:17-jdk AS api-build
 WORKDIR /app
 COPY api/v2/ .
-RUN chmod +x ./mvnw && ./mvnw clean package -DskipTests
+RUN chmod +x ./mvnw
+RUN ./mvnw clean package -DskipTests
 
 FROM eclipse-temurin:17-jre AS api
 WORKDIR /app
