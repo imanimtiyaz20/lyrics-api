@@ -12,6 +12,7 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 
 FROM node:20-alpine AS frontend-build
 WORKDIR /app
+RUN apk add --no-cache git
 COPY public/package.json public/package-lock.json ./
 RUN npm ci
 COPY public/ .
@@ -22,6 +23,8 @@ WORKDIR /app
 COPY --from=frontend-build /app/.next/standalone ./
 COPY --from=frontend-build /app/.next/static ./.next/static
 COPY --from=frontend-build /app/public ./public
-EXPOSE 3000
+
 ENV NODE_ENV=production
+ENV PORT=3000
+EXPOSE 3000
 CMD ["node", "server.js"]
