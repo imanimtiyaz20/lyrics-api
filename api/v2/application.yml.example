@@ -1,0 +1,15 @@
+server:
+  port: 8888
+  address: 0.0.0.0
+settings:
+  # Enable IP blocking to allow requests only from specific IP addresses.
+  ip-block: false
+  # List of IP addresses allowed to access the API when IP blocking is enabled.
+  allowed-ip:
+    - 127.0.0.1
+  # Rate limiting configuration
+  # Set 'enabled' to true to limit the number of requests per IP.
+  # 'req-per-minute' defines how many requests an IP can make per minute.
+  rate-limit:
+    enabled: false
+    req-per-minute: 10

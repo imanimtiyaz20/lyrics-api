@@ -1,0 +1,41 @@
+{
+  "name": "lyrics-api",
+  "version": "1.1.5",
+  "description": "A simple lyrics API that can fetch lyrics from Musixmatch and Genius API.",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "format": "prettier --write .",
+    "lint": "eslint src --ext .ts",
+    "docs": "ts-docs",
+    "fix": "eslint src --ext .ts --fix"
+  },
+  "author": "LewdHuTao",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cheerio": "^1.0.0",
+    "colors": "^1.4.0",
+    "cookie-parser": "^1.4.7",
+    "express": "^4.19.2",
+    "path": "^0.12.7",
+    "useragent": "^2.3.0",
+    "ytmusic-api": "^5.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shittybot/llyrics-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shittybot/llyrics-api/issues"
+  },
+  "homepage": "https://github.com/shittybot/llyrics-api#readme",
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.8",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.13.1",
+    "@types/useragent": "^2.3.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}
